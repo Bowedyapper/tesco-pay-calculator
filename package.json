@@ -1,0 +1,20 @@
+{
+  "name": "tesco-pay-calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Tesco Pay.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc",
+    "dev": "ts-node src/main.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.29.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.6.2",
+    "typescript": "^5.2.2"
+  }
+}
