@@ -16,13 +16,13 @@ const calculateHolidayEntitlementWeeks = (lengthOfService: number): number => {
 
     if (lengthOfService >= 15) {
         holidayEntitlementWeeks = 7.6;
-    } else if (lengthOfService >= 10 && lengthOfService < 15) {
+    } else if (lengthOfService >= 10) {
         holidayEntitlementWeeks = 7.2;
-    } else if (lengthOfService >= 5 && lengthOfService < 10) {
+    } else if (lengthOfService >= 5) {
         holidayEntitlementWeeks = 6.6;
-    } else if (lengthOfService >= 1 && lengthOfService < 5) {
+    } else if (lengthOfService >= 1) {
         holidayEntitlementWeeks = 6;
-    } else if (lengthOfService < 1) {
+    } else {
         holidayEntitlementWeeks = 5.6;
     }
 
@@ -51,3 +51,7 @@ const calculateYearlyHolidayEntitlementInDays = (lengthOfService: number, contra
 const calculateYearlyHoursHolidayEntitlement = (lengthOfService: number, contractedHoursPerWeek: number): number => {
     return calculateHolidayEntitlementWeeks(lengthOfService) * contractedHoursPerWeek;
 }
+
+
+const holidays = calculateHolidayEntitlementWeeks(0.9);
+console.log(holidays)
