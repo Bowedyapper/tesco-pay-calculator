@@ -16,7 +16,7 @@ const calculateGrossMonthlyPay = async (payDate: Moment, contractedShifts: Shift
     const referenceDate = moment('2010-01-22');
     const daysDifferent = payDate.diff(referenceDate, 'days');
     const nightShiftPremium = 2.30;
-    const bankHolidayMultipler = 1.25;
+    const bankHolidayMultiplier = 1.25;
 
     if (daysDifferent % 28 !== 0) {
         throw new Error('Pay date is not a valid pay date')
@@ -36,7 +36,7 @@ const calculateGrossMonthlyPay = async (payDate: Moment, contractedShifts: Shift
                 const hoursWorked = calculateHoursWorked(moment(day.set('hour', getShift.shiftStartHour), 'YYYY-MM-DD HH:mm:ss'), moment(day.set('hour', getShift.shiftEndHour), 'YYYY-MM-DD HH:mm:ss'))
                 const bankHolidayFilter = bankHolidays.filter(bankHoliday => bankHoliday.date == day.format('YYYY-MM-DD'))
                 if (bankHolidayFilter.length > 0) {
-                    hourlyRate = hourlyRate * bankHolidayMultipler;
+                    hourlyRate = hourlyRate * bankHolidayMultiplier;
                     bankHolidaysInPayPeriod.push(bankHolidayFilter[0])
                 }
                 const dayGrossPay = calculateGrossPay(hoursWorked.total, hourlyRate, hoursWorked.nightShiftHours, nightShiftPremium)
